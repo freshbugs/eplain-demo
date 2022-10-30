@@ -5,7 +5,16 @@
   \usepackage{graphicx}
 \endpackages
 
-This is a demo of some things you can do with eplain.tex.  You can
+This is a demo of some things you can do with eplain.tex.
+
+To do these things in pdftex, see the example at
+\verbatim
+https://www.ctan.org/tex-archive/systems/doc/pdftex/samplepdftex
+|endverbatim
+
+You can also do them to be typeset by tex then dvipdfm.
+
+You can
 typeset this with pdftex or tex and then dvipdfm.
 
 \beginsection Graphics
@@ -13,7 +22,7 @@ typeset this with pdftex or tex and then dvipdfm.
 You can use pdfximage to include graphics in pdftex.  You can use
 ``specials'' to tex and then dvipdfm.  The dvipdfm driver is then
 the one to insert the graphics.  For example,
-if two-by-one.pdf is a 2-by-1 pdf:
+if you have a two-by-one.pdf:
 
 \verbatim
 \vbox to 1in{\vss \special{pdf:image width 2in (sbigelow.pdf)}}
@@ -24,7 +33,7 @@ For pdftex, use
 \pdfximage width 2in {sbigelow.pdf} \pdfrefximage\pdflastximage
 |endverbatim
 
-Or, input eplain, and used the graphicx package.  It seems like tex (not
+Here I used eplain and the graphicx package.  It seems like tex (not
 pdftex) needs me to tell it the natwidth and natheight.  Despite its
 filename, this png seems to have a height of 311.  Maybe related: the
 image comes out smaller with tex and dvipdfm than pdftex.
@@ -38,8 +47,7 @@ image comes out smaller with tex and dvipdfm than pdftex.
 \beginsection Tikz
 
 For tex then dvipdfm (not pdftex), the tikz manual says to define
-pgfsysdriver before inputting tikz.  But that makes a mess with
-pdftex.
+pgfsysdriver before inputting tikz.
 
 \ifpdf \else \def\pgfsysdriver{pgfsys-dvipdfm.def} \fi
 \input tikz
