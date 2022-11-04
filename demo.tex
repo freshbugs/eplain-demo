@@ -55,6 +55,20 @@ pgfsysdriver before inputting tikz.
 Here is a curved line.
 \tikzpicture \draw (0,0) .. controls (0,1) .. (1,1); \endtikzpicture
 
+I want to learn how to do draw with pdf literals instead of tikz.
+See pdf specs here.
+\verbatim
+https://opensource.adobe.com/dc-acrobat-sdk-docs/pdfstandards/PDF32000_2008.pdf
+|endverbatim
+You can draw paths made of lines and cubic bezier curves.
+
+Here's how to approximate an arc of a circle using cubic bezier curves.
+Say the angle of the arc is $\theta$, from $A$ to $D$.
+You want a cubic Bezier $A,B,C,D$
+so that at both ends and exactly in the middle,
+it is on the circle with the right tangent direction.
+Then it turns out the length of $AB$ is $(4/3) \tan(\theta/4)$.
+
 \beginsection Hyperlinks
 
 You can get hyperlinks in pdftex using pdfstartlink.
